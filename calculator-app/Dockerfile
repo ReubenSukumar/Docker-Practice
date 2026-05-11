@@ -18,5 +18,5 @@ COPY --from=builder /python-dependencies /usr/local
 COPY --from=builder /application /application
 
 EXPOSE 9000
-git
+
 CMD ["python","app.py"]
