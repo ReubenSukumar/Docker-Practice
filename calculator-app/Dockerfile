@@ -14,8 +14,10 @@ FROM python:3.12-slim
 
 WORKDIR /application
 
-COPY --from=builder /python-dependencies /usr/local
+COPY --from=builder /python-dependencies /python-dependencies
 COPY --from=builder /application /application
+
+ENV PYTHONPATH=/python-dependencies
 
 EXPOSE 9000
 
