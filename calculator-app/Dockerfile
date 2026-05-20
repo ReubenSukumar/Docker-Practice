@@ -19,6 +19,6 @@ COPY --from=builder /application /application
 
 ENV PYTHONPATH=/python-dependencies
 
-EXPOSE 9000
+EXPOSE 80
 
 CMD ["python","app.py"]
