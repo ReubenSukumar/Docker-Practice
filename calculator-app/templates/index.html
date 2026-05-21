@@ -66,10 +66,27 @@ function deleteLast() {
     }
 }
 
-function calculate() {
+async function calculate() {
 
     try {
-        display.value = eval(display.value);
+
+        let expression = display.value;
+        let result = eval(expression);
+
+        display.value = result;
+
+        // Send calculation history to Flask backend
+        await fetch('/log', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                expression: expression,
+                result: result
+            })
+        });
+
     } catch {
         display.value = "Error";
     }
