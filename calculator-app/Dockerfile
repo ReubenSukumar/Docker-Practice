@@ -19,6 +19,8 @@ COPY --from=builder /application /application
 
 ENV PYTHONPATH=/python-dependencies
 
+RUN mkdir -p /logs
+
 EXPOSE 80
 
 CMD ["python","app.py"]

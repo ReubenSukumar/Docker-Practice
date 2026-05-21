@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # Configure logging
 logging.basicConfig(
-    filename='calculator_history.log',
+    filename='/logs/calculator_history.log',
     level=logging.INFO,
     format='%(asctime)s - %(message)s'
 )
